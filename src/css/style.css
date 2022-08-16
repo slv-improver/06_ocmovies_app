@@ -1,1 +1,44 @@
-/*# sourceMappingURL=style.css.map */
+body {
+  margin: 0;
+}
+
+header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 50px;
+}
+
+.logo {
+  width: 100px;
+  padding: 5px;
+}
+
+.menu ul {
+  display: flex;
+  flex-direction: row;
+}
+.menu ul li {
+  list-style: none;
+  padding-inline: 10px;
+}
+
+section {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 20px;
+  height: 150px;
+  width: 100%;
+}
+section > div {
+  width: 14.2857142857%;
+  background: url("../../src/img/placeholder.png") center;
+  background-size: cover;
+}
+
+#featured-movie {
+  height: 90vh;
+  background: url("../../src/img/placeholder.png") center;
+  background-size: cover;
+}/*# sourceMappingURL=style.css.map */
