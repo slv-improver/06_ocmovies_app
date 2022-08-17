@@ -35,3 +35,18 @@ const categorySection3 = document.querySelector('#category__3');
 function defineBg(elt, bgUrl) {
     elt.style.backgroundImage = `url(${bgUrl})`
 }
+
+/**
+ * Create the first section of the page
+ * with the featured movie from the API
+ * @param {HTMLElement} parentElt The section that will contain movie info
+ * @param {String} url The API URL that gives the featured movie
+ */
+function createHero(parentElt, url) {
+    getJSON(url, 1)
+    .then((results) => {
+        const data = results[0];
+        defineBg(parentElt, data.image_url);
+    })
+    .catch(error => console.log('Error: \n' + error));
+}
