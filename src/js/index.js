@@ -11,3 +11,19 @@ const topRatedMovies = document.querySelector('#top-rated-movies');
 const category1 = document.querySelector('#category__1');
 const category2 = document.querySelector('#category__2');
 const category3 = document.querySelector('#category__3');
+
+
+/**
+ * Get limited data from URL.
+ * @param {String} url URL from OCMovies-API
+ * @param {Number} limit Limit number of retrieved data
+ * @return {Array}
+ */
+ async function getJSON(url, limit) {
+    const response = await fetch(url + numberOfData + limit);
+    // Control the response from server is between 200-299
+    if (response.ok) {
+        const json = await response.json();
+        return json.results;
+    }
+}
