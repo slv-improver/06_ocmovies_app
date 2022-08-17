@@ -50,3 +50,21 @@ function createHero(parentElt, url) {
     })
     .catch(error => console.log('Error: \n' + error));
 }
+
+/**
+ * Create a slider inside an element
+ * @param {HTMLElement} parentElt The section that will contain the slider
+ * @param {String} url The API URL that gives the movies
+ * @param {Number} numberOfSlides Define how many slides in the slider
+ */
+function createSlider(parentElt, url, numberOfSlides) {
+    getJSON(url, numberOfSlides)
+    .then((results) => {
+        for (let result of results) {
+            let elt = document.createElement('div');
+            defineBg(elt, result.image_url);
+            parentElt.appendChild(elt);
+        }
+    })
+    .catch(error => console.log('Error: \n' + error));
+}
