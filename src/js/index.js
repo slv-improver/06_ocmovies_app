@@ -68,3 +68,9 @@ function createSlider(parentElt, url, numberOfSlides) {
     })
     .catch(error => console.log('Error: \n' + error));
 }
+
+createHero(featuredMovie, movies + bestMovies);
+createSlider(topRatedMovies, movies + bestMovies, 7);
+createSlider(categorySection1, movies + bestMovies + category1, 7);
+createSlider(categorySection2, movies + bestMovies + category2, 7);
+createSlider(categorySection3, movies + bestMovies + category3, 7);
