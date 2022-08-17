@@ -27,3 +27,8 @@ const category3 = document.querySelector('#category__3');
         return json.results;
     }
 }
+
+// Define DOM element's background
+function defineBg(elt, bgUrl) {
+    elt.style.backgroundImage = `url(${bgUrl})`
+}
