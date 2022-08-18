@@ -27,7 +27,7 @@ const categorySection3 = document.querySelector('#category__3');
     // Control the response from server is between 200-299
     if (response.ok) {
         const json = await response.json();
-        return json.results;
+        return json;
     }
 }
 
@@ -44,8 +44,8 @@ function defineBg(elt, bgUrl) {
  */
 function createHero(parentElt, url) {
     getJSON(url + numberOfData + 1)
-    .then((results) => {
-        const data = results[0];
+    .then((json) => {
+        const data = json.results[0];
         defineBg(parentElt, data.image_url);
     })
     .catch(error => console.log('Error: \n' + error));
@@ -59,11 +59,11 @@ function createHero(parentElt, url) {
  */
 function createSlider(parentElt, title, url, numberOfSlides) {
     getJSON(url, numberOfSlides)
-    .then((results) => {
+    .then((json) => {
         let h2 = document.createElement('h2');
         h2.textContent = title;
         app.insertBefore(h2, parentElt);
-        for (let result of results) {
+        for (let result of json.results) {
             let elt = document.createElement('div');
             defineBg(elt, result.image_url);
             parentElt.appendChild(elt);
