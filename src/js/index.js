@@ -1,5 +1,5 @@
-const api = 'http://127.0.0.1:8000/api/v1';
-const movies = api + '/titles';
+const api = 'http://127.0.0.1:8000/api/v1/';
+const movies = api + 'titles/';
 const bestMovies = '?sort_by=-imdb_score,-votes'
 const category = '&genre=';
 const category1 = category + 'Sport';
@@ -22,8 +22,8 @@ const categorySection3 = document.querySelector('#category__3');
  * @param {Number} limit Limit number of retrieved data
  * @return {Array}
  */
- async function getJSON(url, limit) {
-    const response = await fetch(url + numberOfData + limit);
+ async function getJSON(url) {
+    const response = await fetch(url);
     // Control the response from server is between 200-299
     if (response.ok) {
         const json = await response.json();
@@ -43,7 +43,7 @@ function defineBg(elt, bgUrl) {
  * @param {String} url The API URL that gives the featured movie
  */
 function createHero(parentElt, url) {
-    getJSON(url, 1)
+    getJSON(url + numberOfData + 1)
     .then((results) => {
         const data = results[0];
         defineBg(parentElt, data.image_url);
@@ -73,7 +73,7 @@ function createSlider(parentElt, title, url, numberOfSlides) {
 }
 
 createHero(featuredMovie, movies + bestMovies);
-createSlider(topRatedMovies, 'Films les mieux notés', movies + bestMovies, 7);
-createSlider(categorySection1, 'Sport', movies + bestMovies + category1, 7);
-createSlider(categorySection2, 'Action', movies + bestMovies + category2, 7);
-createSlider(categorySection3, 'Animation', movies + bestMovies + category3, 7);
+createSlider(topRatedMovies, 'Films les mieux notés', movies + bestMovies + numberOfData + 7);
+createSlider(categorySection1, 'Sport', movies + bestMovies + category1 + numberOfData + 7);
+createSlider(categorySection2, 'Action', movies + bestMovies + category2 + numberOfData + 7);
+createSlider(categorySection3, 'Animation', movies + bestMovies + category3 + numberOfData + 7);
