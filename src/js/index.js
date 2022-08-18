@@ -57,9 +57,12 @@ function createHero(parentElt, url) {
  * @param {String} url The API URL that gives the movies
  * @param {Number} numberOfSlides Define how many slides in the slider
  */
-function createSlider(parentElt, url, numberOfSlides) {
+function createSlider(parentElt, title, url, numberOfSlides) {
     getJSON(url, numberOfSlides)
     .then((results) => {
+        let h2 = document.createElement('h2');
+        h2.textContent = title;
+        app.insertBefore(h2, parentElt);
         for (let result of results) {
             let elt = document.createElement('div');
             defineBg(elt, result.image_url);
@@ -70,7 +73,7 @@ function createSlider(parentElt, url, numberOfSlides) {
 }
 
 createHero(featuredMovie, movies + bestMovies);
-createSlider(topRatedMovies, movies + bestMovies, 7);
-createSlider(categorySection1, movies + bestMovies + category1, 7);
-createSlider(categorySection2, movies + bestMovies + category2, 7);
-createSlider(categorySection3, movies + bestMovies + category3, 7);
+createSlider(topRatedMovies, 'Films les mieux notés', movies + bestMovies, 7);
+createSlider(categorySection1, 'Sport', movies + bestMovies + category1, 7);
+createSlider(categorySection2, 'Action', movies + bestMovies + category2, 7);
+createSlider(categorySection3, 'Animation', movies + bestMovies + category3, 7);
