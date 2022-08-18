@@ -90,6 +90,7 @@ function createSlider(parentElt, title, url, numberOfSlides) {
         app.insertBefore(h2, parentElt);
         for (let result of json.results) {
             let elt = document.createElement('div');
+            elt.classList.add('slide');
             defineBg(elt, result.image_url);
             parentElt.appendChild(elt);
         }

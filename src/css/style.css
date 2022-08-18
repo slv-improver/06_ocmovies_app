@@ -1,5 +1,6 @@
 body {
   margin: 0;
+  font-size: 1.3em;
 }
 
 header {
@@ -29,16 +30,30 @@ section {
   flex-direction: row;
   margin-bottom: 20px;
   height: 300px;
-  width: 100%;
+  width: 90vw;
 }
-section > div {
+section > .slide {
   width: 14.2857142857%;
   background: url("../../src/img/placeholder.png") center;
   background-size: cover;
 }
 
 #featured-movie {
-  height: 90vh;
+  display: flex;
+  align-items: center;
+  min-height: 70vh;
+  padding: 10vh 5vw;
   background: url("../../src/img/placeholder.png") center;
   background-size: cover;
+  color: #ddd;
+}
+#featured-movie > .info {
+  width: 50%;
+}
+
+button {
+  padding: 10px 20px;
+  border-radius: 8px;
+  color: #fff;
+  background: #222;
 }/*# sourceMappingURL=style.css.map */
