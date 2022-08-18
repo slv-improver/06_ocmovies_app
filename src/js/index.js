@@ -37,6 +37,26 @@ function defineBg(elt, bgUrl) {
 }
 
 /**
+ * Insert information of the movie inside the Hero section
+ * @param {HTMLElement} parentElt The section that will contain movie info
+ * @param {object} object Movie Title Detail object
+ */
+function createHeroContent(parentElt, object) {
+    const title = document.createElement('h1');
+    title.textContent = object.title;
+    const button = document.createElement('button');
+    button.textContent = 'En savoir plus';
+    const description = document.createElement('p');
+    description.textContent = object.description;
+    const column = document.createElement('div');
+    column.classList.add('info');
+    column.appendChild(title);
+    column.appendChild(button);
+    column.appendChild(description);
+    parentElt.appendChild(column);
+}
+
+/**
  * Create the first section of the page
  * with the featured movie from the API
  * @param {HTMLElement} parentElt The section that will contain movie info
@@ -46,6 +66,11 @@ function createHero(parentElt, url) {
     getJSON(url + numberOfData + 1)
     .then((json) => {
         const data = json.results[0];
+        // Get data from movie URL
+        getJSON(data.url)
+        .then((movie) => {
+            createHeroContent(parentElt, movie);
+        });
         defineBg(parentElt, data.image_url);
     })
     .catch(error => console.log('Error: \n' + error));
