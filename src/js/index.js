@@ -20,7 +20,7 @@ const categorySection3 = document.querySelector('#category__3');
  * Get limited data from URL.
  * @param {String} url URL from OCMovies-API
  * @param {Number} limit Limit number of retrieved data
- * @return {Array}
+ * @return {JSON} JSON Object movie(s)
  */
  async function getJSON(url) {
     const response = await fetch(url);
