@@ -2,18 +2,13 @@ const api = 'http://127.0.0.1:8000/api/v1/';
 const movies = api + 'titles/';
 const bestMovies = '?sort_by=-imdb_score,-votes'
 const category = '&genre=';
-const category1 = category + 'Sport';
-const category2 = category + 'Action';
-const category3 = category + 'Animation';
-const numberOfData = '&page_size='
+const numberOfData = '&page_size=';
 
 // Get sections from the DOM
 const app = document.querySelector('#app');
 const featuredMovie = document.querySelector('#featured-movie');
 const topRatedMovies = document.querySelector('#top-rated-movies');
-const categorySection1 = document.querySelector('#category__1');
-const categorySection2 = document.querySelector('#category__2');
-const categorySection3 = document.querySelector('#category__3');
+const categorySections = document.querySelectorAll('.category');
 
 
 /**
@@ -100,6 +95,9 @@ function createSlider(parentElt, title, url, numberOfSlides) {
 
 createHero(featuredMovie, movies + bestMovies);
 createSlider(topRatedMovies, 'Films les mieux notés', movies + bestMovies + numberOfData + 7);
-createSlider(categorySection1, 'Sport', movies + bestMovies + category1 + numberOfData + 7);
-createSlider(categorySection2, 'Action', movies + bestMovies + category2 + numberOfData + 7);
-createSlider(categorySection3, 'Animation', movies + bestMovies + category3 + numberOfData + 7);
+for (slider of categorySections) {
+    createSlider(
+        slider,
+        slider.id,
+        movies + bestMovies + category + slider.id + numberOfData + 7);
+}
