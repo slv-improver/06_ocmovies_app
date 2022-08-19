@@ -11,6 +11,12 @@ header {
   padding: 0 50px;
 }
 
+h2 {
+  text-align: center;
+  border-top: 1px solid #111;
+  border-bottom: 1px solid #111;
+}
+
 .logo {
   width: 100px;
   padding: 5px;
@@ -26,13 +32,17 @@ header {
 }
 
 section {
-  display: flex;
-  flex-direction: row;
-  margin-bottom: 20px;
-  height: 300px;
+  margin-bottom: 50px;
   width: 90vw;
 }
-section > .slide {
+
+.slider {
+  display: flex;
+  flex-direction: row;
+  height: 300px;
+  margin-inline: auto;
+}
+.slider > .slide {
   width: 14.2857142857%;
   background: url("../../src/img/placeholder.png") center;
   background-size: cover;
