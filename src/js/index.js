@@ -47,10 +47,18 @@ function displayPopup() {
     movieInfoDiv.style.height = '80vh';
 }
 
+/**
+ * Callback.
+ * Make the popup invisble
+ * @param {object} event The element of the DOM the user clicked on
+ */
 function closePopup(event) {
+    event.stopPropagation();
     if (event.target == event.currentTarget) {
         document.body.style.overflow = 'scroll';
-        popup.style.zIndex = -10;
+        setTimeout(() => {
+            popup.style.zIndex = -10;
+        }, 2000);
         movieInfoDiv.style.height = '0vh';
     }
 }
