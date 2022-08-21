@@ -102,6 +102,9 @@ function createHero(parentElt, url) {
         getJSON(data.url)
         .then((movie) => {
             createHeroContent(parentElt, movie);
+            parentElt.addEventListener('click', () => {
+                displayPopup(movie);
+            });
         });
         defineBg(parentElt, data.image_url);
     })
