@@ -53,6 +53,9 @@ function displayPopup(movieInfo) {
     document.querySelector('#popup-title').textContent = movieInfo.title;
     document.querySelector('img[alt="Movie poster"]').src = movieInfo.image_url;
     for (info of movieInfoList) {
+        if (movieInfo[info] == null || movieInfo[info] == 'Not rated or unkown rating') {
+            movieInfo[info] = 'Non connu';
+        }
         if (info != 'actors') {
             document.querySelector(`#${info}`).textContent = movieInfo[info];
         } else {
