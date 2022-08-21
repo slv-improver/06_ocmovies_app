@@ -109,7 +109,8 @@ function createHero(parentElt, url) {
 }
 
 /**
- * Create a slider inside an element
+ * Create a slider inside an element.
+ * Add popup on all slides.
  * @param {HTMLElement} parentElt The section that will contain the slider
  * @param {String} url The API URL that gives the movies
  */
@@ -123,6 +124,12 @@ function createSlider(parentElt, title, url) {
             let elt = document.createElement('div');
             elt.classList.add('slide');
             defineBg(elt, result.image_url);
+            elt.addEventListener('click', () => {
+                getJSON(result.url)
+                .then((movie) => {
+                    displayPopup(movie);
+                })
+            })
             parentElt.appendChild(elt);
         }
     })
