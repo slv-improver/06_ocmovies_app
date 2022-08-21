@@ -96,6 +96,7 @@ button {
   width: 60vw;
   height: 0vh;
   overflow: scroll;
+  transition: height 2s;
 }
 #info .row {
   display: flex;

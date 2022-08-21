@@ -9,6 +9,21 @@ const app = document.querySelector('#app');
 const featuredMovie = document.querySelector('#featured-movie');
 const topRatedMovies = document.querySelector('#top-rated-movies');
 const categorySections = document.querySelectorAll('.category');
+const popup = document.querySelector('#popup');
+const exit = document.querySelector('#close-popup');
+const movieInfoDiv = document.querySelector('#info');
+const movieInfoList = [
+    genres,
+    date_published,
+    rated,
+    imdb_score,
+    directors,
+    actors,
+    duration,
+    countries,
+    worldwide_gross_income,
+    long_description
+]
 
 
 /**
@@ -18,11 +33,25 @@ const categorySections = document.querySelectorAll('.category');
  * @return {JSON} JSON Object movie(s)
  */
  async function getJSON(url) {
-    const response = await fetch(url);
-    // Control the response from server is between 200-299
+     const response = await fetch(url);
+     // Control the response from server is between 200-299
     if (response.ok) {
         const json = await response.json();
         return json;
+    }
+}
+
+function displayPopup() {
+    document.body.style.overflow = 'hidden';
+    popup.style.zIndex = 1;
+    movieInfoDiv.style.height = '80vh';
+}
+
+function closePopup(event) {
+    if (event.target == event.currentTarget) {
+        document.body.style.overflow = 'scroll';
+        popup.style.zIndex = -10;
+        movieInfoDiv.style.height = '0vh';
     }
 }
 
@@ -101,3 +130,5 @@ for (slider of categorySections) {
         slider.id,
         movies + bestMovies + category + slider.id + numberOfData + 7);
 }
+popup.addEventListener('click', closePopup);
+exit.addEventListener('click', closePopup);
