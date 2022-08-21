@@ -104,10 +104,9 @@ function createHero(parentElt, url) {
  * Create a slider inside an element
  * @param {HTMLElement} parentElt The section that will contain the slider
  * @param {String} url The API URL that gives the movies
- * @param {Number} numberOfSlides Define how many slides in the slider
  */
-function createSlider(parentElt, title, url, numberOfSlides) {
-    getJSON(url, numberOfSlides)
+function createSlider(parentElt, title, url) {
+    getJSON(url)
     .then((json) => {
         let h2 = document.createElement('h2');
         h2.textContent = title;
