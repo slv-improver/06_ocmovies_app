@@ -13,16 +13,16 @@ const popup = document.querySelector('#popup');
 const exit = document.querySelector('#close-popup');
 const movieInfoDiv = document.querySelector('#info');
 const movieInfoList = [
-    genres,
-    date_published,
-    rated,
-    imdb_score,
-    directors,
-    actors,
-    duration,
-    countries,
-    worldwide_gross_income,
-    long_description
+    'genres',
+    'date_published',
+    'rated',
+    'imdb_score',
+    'directors',
+    'actors',
+    'duration',
+    'countries',
+    'worldwide_gross_income',
+    'long_description'
 ]
 
 
@@ -41,10 +41,30 @@ const movieInfoList = [
     }
 }
 
-function displayPopup() {
+/**
+ * Callback.
+ * Make the popup visible and display infos in their place
+ * @param {Object} movieInfo Information on the film that has been clicked
+ */
+function displayPopup(movieInfo) {
     document.body.style.overflow = 'hidden';
     popup.style.zIndex = 1;
     movieInfoDiv.style.height = '80vh';
+    document.querySelector('#popup-title').textContent = movieInfo.title;
+    document.querySelector('img[alt="Movie poster"]').src = movieInfo.image_url;
+    for (info of movieInfoList) {
+        if (info != 'actors') {
+            document.querySelector(`#${info}`).textContent = movieInfo[info];
+        } else {
+            let actorsUl = document.querySelector(`#${info}`);
+            //  Loop on actors and create <li> for each one
+            for (actor of movieInfo[info]) {
+                let li = document.createElement('li');
+                li.textContent = actor;
+                actorsUl.appendChild(li);
+            }
+        }
+    }
 }
 
 /**
