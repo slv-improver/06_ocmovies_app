@@ -42,10 +42,9 @@ section {
   width: 90vw;
 }
 
-.slider {
+.slider-container {
   display: flex;
   flex-direction: row;
-  height: 300px;
   margin-inline: auto;
 }
 .slider-container .toleft, .slider-container .toright {
@@ -60,11 +59,15 @@ section {
 .slider-container .slider {
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
+  height: 300px;
   width: 100%;
   overflow: hidden;
 }
 .slider-container .slider .slide {
-  width: 14.2857142857%;
+  height: 300px;
+  width: 23%;
+  margin-inline: 1%;
   background: url("../../src/img/placeholder.png") center;
   background-size: cover;
 }

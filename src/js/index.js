@@ -134,6 +134,14 @@ function createHero(parentElt, url) {
     .catch(error => console.log('Error: \n' + error));
 }
 
+function slideLeft(slider) {
+    slider.appendChild(slider.firstChild);
+}
+
+function slideRight(slider) {
+    slider.insertBefore(slider.lastChild, slider.firstChild);
+}
+
 /**
  * Create a slider inside an element.
  * Add popup on all slides.
@@ -159,6 +167,10 @@ function createSlider(parentElt, title, url) {
             })
             slider.appendChild(elt);
         }
+        let leftArrow = parentElt.querySelector('.toleft');
+        leftArrow.addEventListener('click', () => slideLeft(slider));
+        let rightArrow = parentElt.querySelector('.toright');
+        rightArrow.addEventListener('click', () => slideRight(slider));
     })
     .catch(error => console.log('Error: \n' + error));
 }
