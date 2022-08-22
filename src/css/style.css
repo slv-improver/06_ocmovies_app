@@ -48,13 +48,11 @@ section {
   margin-inline: auto;
 }
 .slider-container .toleft, .slider-container .toright {
-  font-size: 2em;
+  font-size: 2.5em;
+  font-weight: 700;
   align-self: center;
-  border: 1px solid black;
-  border-radius: 50%;
-  margin: 5px;
+  margin: 10px;
   cursor: pointer;
-  padding: 1px 10px 6px 12px;
 }
 .slider-container .slider {
   display: flex;
@@ -70,6 +68,7 @@ section {
   margin-inline: 1%;
   background: url("../../src/img/placeholder.png") center;
   background-size: cover;
+  cursor: pointer;
 }
 
 #featured-movie {
@@ -77,9 +76,10 @@ section {
   align-items: center;
   min-height: 70vh;
   padding: 10vh 5vw;
-  background: url("../../src/img/placeholder.png") center;
+  background: url("../../src/img/placeholder.png") bottom no-repeat;
   background-size: cover;
   color: #ddd;
+  cursor: pointer;
 }
 #featured-movie > .info {
   width: 50%;
@@ -119,11 +119,13 @@ button {
 #info .row {
   display: flex;
   flex-direction: row;
-  align-items: center;
   justify-content: center;
 }
 #info .column {
   width: 50%;
+}
+#info .column img {
+  width: 100%;
 }
 
 #close-popup {
