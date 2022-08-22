@@ -146,6 +146,7 @@ function createSlider(parentElt, title, url) {
         let h2 = document.createElement('h2');
         h2.textContent = title;
         app.insertBefore(h2, parentElt);
+        let slider = parentElt.querySelector('.slider');
         for (let result of json.results) {
             let elt = document.createElement('div');
             elt.classList.add('slide');
@@ -156,7 +157,7 @@ function createSlider(parentElt, title, url) {
                     displayPopup(movie);
                 })
             })
-            parentElt.appendChild(elt);
+            slider.appendChild(elt);
         }
     })
     .catch(error => console.log('Error: \n' + error));
@@ -164,11 +165,11 @@ function createSlider(parentElt, title, url) {
 
 createHero(featuredMovie, movies + bestMovies);
 createSlider(topRatedMovies, 'Films les mieux notés', movies + bestMovies + numberOfData + 7);
-for (slider of categorySections) {
+for (section of categorySections) {
     createSlider(
-        slider,
-        slider.id,
-        movies + bestMovies + category + slider.id + numberOfData + 7);
+        section,
+        section.id,
+        movies + bestMovies + category + section.id + numberOfData + 7);
 }
 popup.addEventListener('click', closePopup);
 exit.addEventListener('click', closePopup);
