@@ -159,6 +159,7 @@ function createSlider(parentElt, title, url) {
         for (let result of json.results) {
             let elt = document.createElement('div');
             elt.classList.add('slide');
+            elt.classList.add('overlay');
             defineBg(elt, result.image_url);
             elt.addEventListener('click', () => {
                 getJSON(result.url)
