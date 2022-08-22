@@ -151,6 +151,7 @@ function slideRight(slider) {
 function createSlider(parentElt, title, url) {
     getJSON(url)
     .then((json) => {
+        let slideHeight = ''
         let h2 = document.createElement('h2');
         h2.textContent = title;
         app.insertBefore(h2, parentElt);
@@ -166,11 +167,15 @@ function createSlider(parentElt, title, url) {
                 })
             })
             slider.appendChild(elt);
+            slideHeight = `${elt.clientWidth*1.46}px`;
+            elt.style.height = slideHeight;
         }
         let leftArrow = parentElt.querySelector('.toleft');
         leftArrow.addEventListener('click', () => slideLeft(slider));
         let rightArrow = parentElt.querySelector('.toright');
         rightArrow.addEventListener('click', () => slideRight(slider));
+        slider.style.height = slideHeight;
+        parentElt.style.height = slideHeight;
     })
     .catch(error => console.log('Error: \n' + error));
 }
