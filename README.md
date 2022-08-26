@@ -8,7 +8,7 @@ The expectations are to display best movie information in a Hero section and a 7
 All images display pop-up with full movie information when clicked.
 
 The site could match with the following [mockup](https://user.oc-static.com/upload/2020/09/08/15995700268489_image1.png):
-<figure><img src="https://user.oc-static.com/upload/2020/09/08/15995700268489_image1.png" alt="Trulli" style="width:100%"><figcaption align = "center"><b>Mockup</b></figcaption></figure>
+<figure><img src="https://user.oc-static.com/upload/2020/09/08/15995700268489_image1.png" alt="Trulli"><figcaption align="center">Mockup</figcaption></figure>
 
 ## Run the API
 
