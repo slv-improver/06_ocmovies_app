@@ -32,7 +32,7 @@ const movieInfoList = [
  * @param {Number} limit Limit number of retrieved data
  * @return {JSON} JSON Object movie(s)
  */
- async function getJSON(url) {
+async function getJSON(url) {
      const response = await fetch(url);
      // Control the response from server is between 200-299
     if (response.ok) {
